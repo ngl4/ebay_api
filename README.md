@@ -1,2 +1,2 @@
-# amazon_ebay_api
-testing on amazon product advertising api 
+# ebay_api
+testing on ebay api 
