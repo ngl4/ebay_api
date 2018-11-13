@@ -9,7 +9,7 @@ $(document).ready(function () {
 
     var appId = ""; //PASTE YOUR EBAY API HERE 
     var itemName = "jeans";
-    var itemId = "113214328944"; 
+    var itemId = "113214328944";
 
     //ebay Finding API-- finding specific items
     var findUrl = "https://cors-anywhere.herokuapp.com/" + "http://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsAdvanced&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=" + appId + "&GLOBAL-ID=EBAY-US&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&keywords=" + itemName + "&paginationInput.entriesPerPage=2";
@@ -43,5 +43,5 @@ $(document).ready(function () {
     }).then(function (response) {
         console.log(response);
     }).catch(() => console.log("ERROR: Can’t access response. Blocked by browser?"));;
-  
+
 });

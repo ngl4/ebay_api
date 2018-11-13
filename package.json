@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/ngl4/ebay_api#readme",
   "dependencies": {
-    "ebay-api": "^1.13.7"
+
   }
 }
