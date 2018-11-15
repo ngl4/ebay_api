@@ -1,6 +1,47 @@
-// var ebay = require('ebay-api');
+require("dotenv").config();
+var request = require("request");
 
-// NOT RELIABLE TO USE!!!
+var appId = "";
+var itemName = "jeans";
+var itemId = "113214328944";
+
+var query_Finding_URL =
+    "http://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsAdvanced&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=" +
+    appId +
+    "&GLOBAL-ID=EBAY-US&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&keywords=" +
+    itemName +
+    "&paginationInput.entriesPerPage=1";
+
+request(query_Finding_URL, function (error, response, body) {
+    if (!error && response.statusCode === 200) {
+        console.log(
+            JSON.parse(body).findItemsAdvancedResponse[0].searchResult[0].item
+        );
+    }
+});
+
+var query_Similar_URL =
+    "http://svcs.ebay.com/MerchandisingService?OPERATION-NAME=getSimilarItems&SERVICE-NAME=MerchandisingService&SERVICE-VERSION=1.1.0&CONSUMER-ID=" +
+    appId +
+    "&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&itemId=" +
+    itemId +
+    "&maxResults=5";
+
+request(query_Similar_URL, function (error, response, body) {
+    if (!error && response.statusCode === 200) {
+        // console.log(
+        //     JSON.parse(body).getSimilarItemsResponse.itemRecommendations.item
+        // );
+
+        var itemList = JSON.parse(body).getSimilarItemsResponse.itemRecommendations.item;
+
+
+    }
+});
+
+// NOT RELIABLE TO USE THE FOLLOWING!!!
+
+// var ebay = require('ebay-api');
 
 /**
  * Finding API:findItemsByKeywords
