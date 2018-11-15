@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function () {
     // Getting a reference to the input field where user adds a new item
     var $newItemInput = $("input.new-item-input");
     console.log($newItemInput);
